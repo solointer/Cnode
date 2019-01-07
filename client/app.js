@@ -1,1 +1,5 @@
-console.log("webpack的基本配置");
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App.jsx'
+
+ReactDOM.render(<App/>, document.body)
