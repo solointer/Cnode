@@ -33,4 +33,14 @@ npm install babel-preset-es2015 babel-preset-es2015-loose babel-preset-react --s
 
 /*在打包的时候自动生成HTML,并且根据入口文件生成JS的引用路径*/
 npm install html-webpack-plugin --save-dev
+
+/*小型的node的命令包,用来删除dist目录*/
+
+npm install rimraf --save-dev
+
+```
+#### 配置服务器端渲染
+
+```javascript
+npm install express --save
 ```
