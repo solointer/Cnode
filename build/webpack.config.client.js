@@ -1,7 +1,9 @@
 /*引入path使用绝对路径，防止路径出错*/
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
-module.exports = {
+/*判断是否是开发环境,只有开发环境才需要webpack-dev-server和热更新*/
+const isDev = process.env.NODE_ENV === 'development'
+const config = {
     /*入口文件*/
     entry: {
         app: path.join(__dirname,'../client/app.js')
@@ -39,3 +41,20 @@ module.exports = {
     ]
 
 }
+if (isDev) {
+    /*webpack的服务器的相关信息*/
+    config.devServer = {
+        host: '0.0.0.0',
+        port: '8888',
+        contentBase: path.join(__dirname,'../dist'),
+        hot: false,
+        overlay: {
+            errors: true
+        },
+        publicPath: '/public',
+        historyApiFallback: {
+            index: '/public/index.html'
+        }
+    }
+}
+module.exports = config

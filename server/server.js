@@ -15,7 +15,7 @@ app.get('*', function (req, res) {
     /*执行前端生成的JS文件,生成页面的HTML字符串*/
     const appString = ReactSSR.renderToString(serverEntry)
     /*将后段同构的字符串放入前端打包生成的HTMl中*/
-    res.send(template.replace('<app></app>',appString))
+    res.send(template.replace('<!-- app -->',appString))
 })
 
 app.listen(3333, function() {
