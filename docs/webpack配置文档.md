@@ -45,10 +45,16 @@ npm install rimraf --save-dev
 npm install express --save
 ```
 
-#### 配置热更新
+#### 配置webpack-dev-server
 
 ```javascript
 npm install webpack-dev-server --save=dev
 /*因为mac和window是的设置NODE_ENV的差异，所以使用这个包来进行设置*/
 npm install cross-env --save-dev
+```
+
+#### 配置热更新
+
+```javascript
+npm install react-hot-loader@next --save-dev
 ```

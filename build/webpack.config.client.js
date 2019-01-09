@@ -1,8 +1,11 @@
 /*引入path使用绝对路径，防止路径出错*/
 const path = require('path')
+const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
 /*判断是否是开发环境,只有开发环境才需要webpack-dev-server和热更新*/
 const isDev = process.env.NODE_ENV === 'development'
+/*指定当前环境*/
+const mode = isDev ? 'development' : 'production'
 const config = {
     /*入口文件*/
     entry: {
@@ -16,8 +19,9 @@ const config = {
     output: {
         filename: '[name].[hash].js',
         path: path.join(__dirname,'../dist'),
-        publicPath: '/public'
+        publicPath: '/public/'
     },
+    mode: mode,
     /*通过第三方模块来帮助webpack识别react的jsx语法,import的时候可以不加
     .jsx的后缀*/
 
@@ -42,12 +46,20 @@ const config = {
 
 }
 if (isDev) {
+    /*打包的时候需要除了入口还必须把热更新模块的代码加进去*/
+    config.entry = {
+        entry:[
+            'react-hot-loader/patch',
+            path.join(__dirname,'../client/app.js')
+
+        ]
+    }
     /*webpack的服务器的相关信息*/
     config.devServer = {
         host: '0.0.0.0',
         port: '8888',
         contentBase: path.join(__dirname,'../dist'),
-        hot: false,
+        hot: true,
         overlay: {
             errors: true
         },
@@ -56,5 +68,7 @@ if (isDev) {
             index: '/public/index.html'
         }
     }
+    /*webpack的热重载有两种模式，一种是iframe的内部刷新，一种是全局组件替换。HotModuleReplacementPlugin插件可以实现组件差异性更换*/
+    config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 module.exports = config
