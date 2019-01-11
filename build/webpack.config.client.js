@@ -56,7 +56,7 @@ if (isDev) {
     }
     /*webpack的服务器的相关信息*/
     config.devServer = {
-        host: '0.0.0.0',
+        host: '127.0.0.1',
         port: '8888',
         contentBase: path.join(__dirname,'../dist'),
         hot: true,

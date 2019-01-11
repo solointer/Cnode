@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:server": "webpack --config build/webpack.config.server.js",
-    "client:client": "webpack --config build/webpack.config.client.js ",
+    "build:client": "webpack --config build/webpack.config.client.js ",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "dev:server": "cross-env NODE_ENV=development node server/server.js",
     "clear": "rimraf dist",
-    "build": "npm run clear && npm run build:client && npm run build:server",
-    "start": "node server/server.js"
+    "build": "npm run clear && npm run build:client && npm run build:server"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/solointer/Cnode#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -40,6 +41,8 @@
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-proxy-middleware": "^0.19.1",
+    "memory-fs": "^0.4.1",
     "react-hot-loader": "^4.5.3",
     "rimraf": "^2.6.3",
     "webpack-cli": "^3.2.0",

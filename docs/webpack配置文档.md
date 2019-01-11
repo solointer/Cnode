@@ -58,3 +58,14 @@ npm install cross-env --save-dev
 ```javascript
 npm install react-hot-loader@next --save-dev
 ```
+
+#### 局部热更新重新配置服务器端渲染
+
+```javascript
+/*前端发送请求,后端发送请求获取模版*/
+npm install axios --save
+/*从内存中读写文件*/
+npm install memory-fs --save-dev
+/*express 的代理的中间件,主要用来处理静态文件*/
+npm install http-proxy-middleware --save-dev
+```
