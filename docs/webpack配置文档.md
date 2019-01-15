@@ -56,7 +56,7 @@ npm install cross-env --save-dev
 #### 配置热更新
 
 ```javascript
-npm install react-hot-loader@next --save-dev
+npm install react-hot-loader@next --save
 ```
 
 #### 局部热更新重新配置服务器端渲染
@@ -69,3 +69,26 @@ npm install memory-fs --save-dev
 /*express 的代理的中间件,主要用来处理静态文件*/
 npm install http-proxy-middleware --save-dev
 ```
+
+#### eslint和editorconfig规范代码
+
+```javascript
+/*代码规范*/
+npm install eslint --save-dev
+/*"eslint代码解析babel-eslint"*/
+npm install babel-eslint --save-dev
+/*eslint 检测继承的标准*/
+npm isntall eslint-config-airbnb eslint-config-standard --save-dev
+/*webpack使用的第三方模块,编译之前检测代码*/
+npm install eslint-loader --save-dev
+/*airbnb所依赖的插件 https://www.npmjs.com/package/eslint-config-airbnb*/
+npm install eslint-plugin-import --save-dev
+npm install eslint-plugin-jsx-a11y --save-dev
+npm install eslint-plugin-node --save-dev
+npm install eslint-plugin-promise --save-dev
+npm install eslint-plugin-react --save-dev
+npm install eslint-plugin-standard --save-dev
+/*git的钩子 commit之前先检测代码*/
+npm install husky --save-dev
+```
+
