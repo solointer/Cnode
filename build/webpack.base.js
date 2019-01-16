@@ -1,6 +1,10 @@
 const path = require('path')
 module.exports = {
-  /*通过第三方模块来帮助webpack识别react的jsx语法,import的时候可以不加
+    /*可以解析的文件 申明不需要写后缀名的module,默认是js*/
+    resolve: {
+      extensions: ['.js', '.jsx']
+    },
+    /*通过第三方模块来帮助webpack识别react的jsx语法,import的时候可以不加
     .jsx的后缀*/
     /*在编译之前使用eslint去检测代码*/
     module: {

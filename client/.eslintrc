@@ -12,9 +12,9 @@
     "extends": "airbnb",
     "rules": {
         "semi": [0],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "indent": ["error", 2, {"ignoredNodes": ["JSXElement"]}],
         "react/jsx-indent": ["error", 2],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "comma-dangle": [1, "always-multiline"]
     }
 }

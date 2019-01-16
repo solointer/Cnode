@@ -106,3 +106,11 @@ npm install serve-favicon --save
 npm install nodemon -save-dev
 ```
 
+#### react-router的配置
+
+```javascript
+/*react-router包含了react-router-dom和react-router-native*/
+npm install react-router --save
+npm install react-router-dom --save
+```
+
