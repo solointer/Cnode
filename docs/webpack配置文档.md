@@ -93,3 +93,16 @@ npm install husky --save-dev
 /*npm install webpack-merge -save-dev*/
 ```
 
+#### favicon请求的处理
+
+```javascript
+npm install serve-favicon --save
+```
+
+####  服务端代码的自动更新
+
+```javascript
+/*不像客户端存在webpack-dev-server,我们的服务端的代码每次修改都需要重启服务*/
+npm install nodemon -save-dev
+```
+

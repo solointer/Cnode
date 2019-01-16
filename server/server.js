@@ -1,11 +1,12 @@
 const express = require('express')
 const fs = require('fs')
 const path = require('path')
+const favicon = require('serve-favicon')
 const ReactSSR = require('react-dom/server')
 const isDev = process.env.NODE_ENV === 'development'
 
 const app = express()
-
+app.use(favicon(path.join(__dirname, '../favicon.ico')))
 if (!isDev) {
     /*因为commonjs2规范,以及client/server-entry.js的export default导出的问题,
     这里必须.default*/
