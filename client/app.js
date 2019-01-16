@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader' //eslint-disable-line
 import App from './App.jsx'
 
-ReactDOM.hydrate(<App />, document.getElementById('root'))
-
 const root = document.getElementById('root')
+/* 解决警告Expected server HTML to contain a matching in,  因为只有SSR可以使用hydrate */
+const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
 const render = (Component) => {
-  ReactDOM.hydrate(
+  renderMethod(
     <AppContainer>
       <Component />
     </AppContainer>,

@@ -90,5 +90,6 @@ npm install eslint-plugin-react --save-dev
 npm install eslint-plugin-standard --save-dev
 /*git的钩子 commit之前先检测代码*/
 npm install husky --save-dev
+/*npm install webpack-merge -save-dev*/
 ```
 

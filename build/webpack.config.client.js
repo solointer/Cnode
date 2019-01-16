@@ -2,11 +2,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const HTMLPlugin = require('html-webpack-plugin')
+/*webpack的官方插件,把webpack.base.js里面的配置进行合并*/
+const webpackMerge = require('webpack-merge')
+/*webpack的第三方loader*/
+const baseConfig = require('./webpack.base')
 /*判断是否是开发环境,只有开发环境才需要webpack-dev-server和热更新*/
 const isDev = process.env.NODE_ENV === 'development'
 /*指定当前环境*/
 const mode = isDev ? 'development' : 'production'
-const config = {
+/*合并webpack的配置, 后面的会覆盖前面的*/
+const config = webpackMerge(baseConfig,{
     /*入口文件*/
     entry: {
         app: path.join(__dirname,'../client/app.js')
@@ -22,28 +27,6 @@ const config = {
         publicPath: '/public/'
     },
     mode: mode,
-    /*通过第三方模块来帮助webpack识别react的jsx语法,import的时候可以不加
-    .jsx的后缀*/
-    /*在编译之前使用eslint去检测代码*/
-    module: {
-        rules: [
-            {
-                enforce: 'pre',
-                test: /.(js|jsx)$/,
-                exclude: [
-                    path.resolve(__dirname,'../node_modules')
-                ],
-                loader: 'eslint-loader'
-            },
-            {
-                test: /\.(jsx|js)?$/,
-                exclude: [
-                    path.resolve(__dirname,'../node_modules')
-                ],
-                loader: 'babel-loader'
-            }
-        ]
-    },
     /*生成一个HTML的页面，把entry注入草html中,如果指定了tempalte,
     就会以我们的指定的模版插入JS*/
     plugins: [
@@ -52,7 +35,7 @@ const config = {
         })
     ]
 
-}
+})
 if (isDev) {
     /*打包的时候需要除了入口还必须把热更新模块的代码加进去*/
     config.entry = {
