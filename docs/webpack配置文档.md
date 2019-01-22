@@ -21,6 +21,8 @@ npm install babel-core --save-dev
 因为babel默认编译的成的是ES6的代码，所以
 必须在babelrc中进行配置,让babel可以以JSX和ES5的标准进行编译*/
 
+/*首先，这个配置文件是针对babel 6的。Babel 6做了一系列模块化，不像Babel 5一样把所有的内容都加载。比如需要编译ES6，我们需要设置presets为"es2015"，也就是预先加载es6编译的相关模块，如果需要编译jsx，需要预先加载"react"这个模块*/
+
 {
     /*babel要编译的语法*/
     "presets": [
@@ -113,4 +115,19 @@ npm install nodemon -save-dev
 npm install react-router --save
 npm install react-router-dom --save
 ```
+
+#### mobex的配置
+
+ ```javascript
+ /*支持js的装饰器*/
+ npm install babel-plugin-transform-decorators-legacy --dev-save
+/*es7 stage-1标准*/
+ npm install babel-preset-stage-1 --dev-save
+ /*安装mobx和mobx链接react的库*/
+npm install mobx mobx-react --save
+/*检测属性的类型*/
+npm install prop-types --save
+ ```
+
+
 

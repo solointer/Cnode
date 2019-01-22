@@ -6,8 +6,11 @@
         "node": true
     },
     "parserOptions": {
-        "eamaVersion": 6,
-        "sourceType": "module"
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "legacyDecorators": true
+        }
     },
     "extends": "airbnb",
     "rules": {
