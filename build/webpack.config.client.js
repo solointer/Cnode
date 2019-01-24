@@ -57,6 +57,9 @@ if (isDev) {
         publicPath: '/public',
         historyApiFallback: {
             index: '/public/index.html'
+        },
+        proxy: {
+          '/api': 'http://localhost:3000'
         }
     }
     /*webpack的热重载有两种模式，一种是iframe的内部刷新，一种是全局组件替换。HotModuleReplacementPlugin插件可以实现组件差异性更换*/

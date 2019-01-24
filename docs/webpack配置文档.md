@@ -129,5 +129,14 @@ npm install mobx mobx-react --save
 npm install prop-types --save
  ```
 
+ #### CNode API代理实现
+
+ ```javascript
+ /*解析http请求的body*/
+ npm install body-parser express-session --save
+/*解析url为json*/
+npm install query-string --save
+ ```
+
 
 
